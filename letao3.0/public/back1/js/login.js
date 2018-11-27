@@ -84,7 +84,7 @@ $(function() {
   * */
   $('[type="reset"]').on('click',function () {
    
-      //重置表单样式
+    //重置表单样式
       $("#form").data("bootstrapValidator").resetForm();
     
   })

@@ -12,9 +12,12 @@ $(function() {
 
     // 配置校验图标
     feedbackIcons: {
-      valid: 'glyphicon glyphicon-ok',    // 校验成功
-      invalid: 'glyphicon glyphicon-remove',   // 校验失败
-      validating: 'glyphicon glyphicon-refresh'  // 校验中
+      // 校验成功
+      valid: 'glyphicon glyphicon-ok',
+      // 校验失败    
+      invalid: 'glyphicon glyphicon-remove',
+      // 校验中   
+      validating: 'glyphicon glyphicon-refresh'  
     },
 
     // 配置校验字段   (给input设置 name 值)
