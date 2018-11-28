@@ -1,24 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>乐淘商城</title>
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  
+  <link rel="stylesheet" 
+  href="./css/common.css">
+  <link rel="stylesheet" href="./css/index.css">
   <style>
-    * {
-    padding : 0 ; 
-    margin : 0 ; 
-    list-style : none ; 
-    }
-    
+
+
   </style>
 
 </head>
+
 <body>
 
-  <h1>登陆成功</h1>
+  <div class="lt_aside">
+    <div class="title">
+      <p>叶子树</p>
+    </div>
+    <div class="user">
+      <img src="./images/hui.jpg" alt="">
+      <p>超级萌萌哒</p>
+    </div>
+    <div class="nav">
+      <ul>
+        <li>
+          <a href="user.html">
+            <i class="glyphicon glyphicon-user"></i>
+            <span>用户管理</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:;" class="category">
+            <i class="glyphicon glyphicon-list"></i>
+            <span>分类管理</span>
+          </a>
+          <div class="child">
+            <a href="firest.html">二级列表1</a>
+            <a href="sencode.html">二级列表2</a>
+          </div>
+        </li>
+        <li>
+          <a href="product.html">
+            <i class="glyphicon glyphicon-tags"></i>
+            <span>商品管理</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="lt_main">
+    <div class="lt_topbar">
+      <a href="#" class="topbar_left pull-left">
+        <i class="glyphicon glyphicon-align-justify"></i>
+      </a>
+      <a href="#" class="topbar_right pull-right ">
+        <i class="glyphicon glyphicon-log-out"></i>
+      </a>
+    </div>
+    <div class="container-fluid">
+      <div class="mt_20">
+        <ol class="breadcrumb">
+          <li><a href="#">管理系统</a></li>
+          <li class="active">用户管理</li>
+        </ol>
+      </div>
+
+      <div class="echart">
+        <div class="echart_left pull-left"></div>
+        <div class="echart_right pull-right"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mask">
+    <div class="modal fade " id="logout" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">后台管理系统</h4>
+          </div>
+          <div class="modal-body">
+            <p class="red">
+              <i class="glyphicon glyphicon-info-sign"></i><span>你确定要退出后台管理系统么</span>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" id="loginOut">退出</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
+  <script src="./lib/jquery/jquery.js"></script>
+  <script src="./lib/bootstrap/js/bootstrap.js"></script>
+  <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+  <script src="./js/isLogin.js"></script>
+  <script src="./lib/echarts/echarts.min.js"></script>
+  <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/index.js"></script>
 
 
 </body>
+
 </html>

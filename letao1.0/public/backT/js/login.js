@@ -12,12 +12,9 @@ $(function() {
 
     // 配置校验图标
     feedbackIcons: {
-      // 校验成功
-      valid: 'glyphicon glyphicon-ok',
-      // 校验失败    
-      invalid: 'glyphicon glyphicon-remove',
-      // 校验中   
-      validating: 'glyphicon glyphicon-refresh'  
+      valid: 'glyphicon glyphicon-ok',    // 校验成功
+      invalid: 'glyphicon glyphicon-remove',   // 校验失败
+      validating: 'glyphicon glyphicon-refresh'  // 校验中
     },
 
     // 配置校验字段   (给input设置 name 值)
@@ -35,24 +32,31 @@ $(function() {
             min: 2,
             max: 6,
             message: "用户名长度必须是2-6位"
+          },
+          // callback 专门用来配置回调的 message
+          callback: {
+            message: "用户名不存在"
           }
         }
       },
 
       // 密码
-      password:{
-        validators:{
-            notEmpty:{
-                message:"请输入密码"
-            },
-          	stringLength:{
-                min:6,
-              	max:12,
-              	message:"密码长度必须为6到12位"
-            }
+      password: {
+        validators: {
+          notEmpty: {
+            message: "请输入密码"
+          },
+          stringLength: {
+            min: 6,
+            max: 12,
+            message: "密码长度必须是6-12位"
+          },
+          callback: {
+            message: "密码错误"
+          }
         }
+      }
     }
-  }
 
 
   });
@@ -63,39 +67,43 @@ $(function() {
   *    默认是会提交表单的, 页面就跳转了,
   *    我们需要注册表单校验成功事件, 在成功事件中, 阻止默认的提交, 通过 ajax 提交
   * */
-$('#form').on('success.form.bv',function (e) {
+  $('#form').on('success.form.bv', function( e ) {
 
-  //阻止浏览器的默认行为
-  e.preventDefault();
+    // 阻止默认的提交
+    e.preventDefault();
 
-  //使用ajax进行提交
-  $.ajax({
-    type :'post',
-    url :'/employee/employeeLogin',
-    data :$('#form').serialize(),
-    dataType :'json',
-    success :function (info) {
-
-      console.log(info);
-      
-      
-      if(info.error ===1000){
-        alert('用户名不存在');
+    // console.log( "默认的表单提交被阻止了, 通过ajax来提交" )
+    $.ajax({
+      type: "post",
+      url: "/employee/employeeLogin",
+      data: $('#form').serialize(),
+      dataType: 'json',
+      success: function( info ) {
+        console.log( info );
+        if ( info.error === 1000 ) {
+          // alert("用户名不存在");
+          // 更新当前input的校验状态, 更新成失败
+          // updateStatus
+          // 参数1: filed  字段名称
+          // 参数2: status 状态
+          //        NOT_VALIDATED(未校验), VALIDATING(校验中), INVALID(校验失败) or VALID(校验成功)
+          // 参数3: validator 配置校验规则, 用来配置输出的提示信息
+          $('#form').data("bootstrapValidator").updateStatus( "username", "INVALID", 'callback');
+          return;
+        }
+        if ( info.error === 1001 ) {
+          // alert("密码错误")
+          $('#form').data("bootstrapValidator").updateStatus("password", "INVALID", "callback");
+          return;
+        }
+        if ( info.success ) {
+          // 登录成功
+          location.href = "index.html";
+        }
       }
-      else if(info.error ===1001){
-        alert('密码错误');
-      }
-      if(info.success){
-        location.href = "index.html";
-      }
-      
-    },
-    
+    })
 
   });
-  
-});
-
 
 
   /*

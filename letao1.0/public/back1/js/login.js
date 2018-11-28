@@ -30,6 +30,9 @@ $(function () {
             min: 2,
             max: 6,
             message: "输入的用户名必须是2到6位"
+          },
+          callback:{
+            message : "用户名不存在"
           }
         }
       },
@@ -45,6 +48,9 @@ $(function () {
             min: 6,
             max: 12,
             message: '输入的密码必须是6到12位'
+          },
+          callback:{
+            message:"密码错误"
           }
         },
       }
@@ -94,6 +100,11 @@ $(function () {
     //重置表单的输入框的状态
      $('#form').data('bootstrapValidator').resetForm();
    });
+
+
+
+
+
 
 
 
