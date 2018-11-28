@@ -1,0 +1,8 @@
+/*************/
+/* 柱状图和饼形图 */
+.echars_left,
+.echars_right{
+  width: 48%;
+  height: 400px;
+  /* background-color: #f94; */
+}

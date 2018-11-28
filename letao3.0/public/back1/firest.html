@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
   <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
   <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/index.css">
   <style>
 
 
@@ -23,8 +22,8 @@
       <p>像介样</p>
     </div>
     <a href="index.html" class="user">
-      <img src="./images/mg.png" alt="">
-      <p>超级马里奥</p>
+        <img src="./images/mg.png" alt="">
+        <p>超级马里奥</p>
     </a>
     <div class="nav">
       <ul>
@@ -37,8 +36,8 @@
           <a href="javascript:;" class="cartgin">
             <i class="glyphicon glyphicon-list"></i><span>分类管理</span>
           </a>
-          <div class="child">
-            <a href="firest.html" class="">鞋子</a>
+          <div class="child" style="display:block">
+            <a href="firest.html" class="active">鞋子</a>
             <a href="sencode.html">衣服</a>
           </div>
         </li>
@@ -64,13 +63,31 @@
           <li class="active">用户管理</li>
         </ol>
       </div>
-      <div class="echars">
-        <div class="echars_left pull-left"></div>
-        <div class="echars_right pull-right"></div>
+      <div>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>				
+              <th>序号</th>
+              <th>用户名</th>
+              <th>手机号</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                			
+              <td>1</td>
+              <td>itcast</td>
+              <td>15757771111</td>
+              <td>正常</td>
+              <td><button class="btn btn-danger">禁用</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-
   <div class="mask">
     <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1"  >
@@ -97,11 +114,9 @@
   <script src="./lib/jquery/jquery.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
-  <script src="./lib/nprogress/nprogress.js"></script>
-  <script src="./lib/echarts/echarts.min.js"></script>
   <script src="./js/isLogin.js"></script>
+  <script src="./lib/nprogress/nprogress.js"></script>
   <script src="./js/common.js"></script>
-  <script src="./js/index.js"></script>
 
 </body>
 
