@@ -1,0 +1,8 @@
+
+/*设置条形图的样式*/
+.echarts_left,
+.echarts_right{
+  width: 48%;
+  height: 400px;
+  background-color: #f91;
+}

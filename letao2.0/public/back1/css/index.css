@@ -1,0 +1,9 @@
+/*****设置柱状图和饼形图*****/
+
+.echart_left,
+.echart_right{
+  width: 48%;
+  height: 400px;
+  background-color: pink;
+}
+
