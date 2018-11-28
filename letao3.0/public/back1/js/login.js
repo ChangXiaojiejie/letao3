@@ -25,6 +25,9 @@ $(function() {
                 min:2,
               	max:6,
               	message:"用户名的长度必须为2到6位"
+            },
+            callback:{
+              message:'用户名不正确'
             }
         }
     },
@@ -37,10 +40,12 @@ $(function() {
             min:6,
             max:12,
             message:"密码长度必须为6到12位"
+        },
+        callback:{
+          message:'密码不正确'
         }
       }
     },
-    
   }
   
 });
@@ -63,9 +68,11 @@ $(function() {
       success:function(info){
         // console.log(info);
         if(info.error ===1000){
-          alert(info.message);
+          // alert(info.message);
+          $('#form').data('bootstrapValidator').updateStatus('username','INVALID','callback');
         }else if(info.error===1001){
-          alert(info.message);
+          // alert(info.message);
+          $('#form').data('bootstrapValidator').updateStatus('password','INVALID','callback');
         }
         if(info.success){
           location.href = "index.html";
@@ -75,10 +82,6 @@ $(function() {
     });
   
   });
-
-
-
-
   /*
   * 3. 重置功能, 本身重置按钮, 就可以重置内容, 需要额外的重置状态
   * */
