@@ -22,8 +22,8 @@
       <p>像介样</p>
     </div>
     <a href="index.html" class="user">
-        <img src="./images/mg.png" alt="">
-        <p>超级马里奥</p>
+      <img src="./images/mg.png" alt="">
+      <p>超级马里奥</p>
     </a>
     <div class="nav">
       <ul>
@@ -60,63 +60,108 @@
       <div class="mt_20">
         <ol class="breadcrumb">
           <li><a href="#">管理系统</a></li>
-          <li class="active">用户管理</li>
+          <li class="active">分类管理</li>
+          <li class="active">一级分类</li>
         </ol>
       </div>
+      <button class="btn btn-default addBtn">添加分类</button>
       <div>
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover mt_20">
           <thead>
-            <tr>				
-              <th>序号</th>
-              <th>用户名</th>
-              <th>手机号</th>
-              <th>状态</th>
-              <th>操作</th>
+            <tr>
+              <th width="20%">序号</th>
+              <th width="80%">一级分类名</th>
+
             </tr>
           </thead>
           <tbody>
-            <tr>
-                			
-              <td>1</td>
-              <td>itcast</td>
-              <td>15757771111</td>
-              <td>正常</td>
-              <td><button class="btn btn-danger">禁用</button></td>
-            </tr>
+            <!-- 玩个坑 -->
           </tbody>
         </table>
+        <div class="pull-right">
+          <ul id="pagintor"></ul>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- 退出模态框 -->
   <div class="mask">
     <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1"  >
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" ><span >&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">后台管理系统</h4>
-        </div>
-        <div class="modal-body">
-         <p class="red"><i class="glyphicon glyphicon-info-sign"></i> 您确定要退出后台管理系统吗？</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+    <div class="modal fade" id="myModal" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">后台管理系统</h4>
+          </div>
+          <div class="modal-body">
+            <p class="red"><i class="glyphicon glyphicon-info-sign"></i> 您确定要退出后台管理系统吗？</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- 添加分类的模态框 -->
+  <div class="face">
+    <!-- Modal -->
+    <div class="modal fade" id="addCart" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <form id="form">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <input type="text" name="categoryName" class="form-control" placeholder="请输入一级分类名称">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="submit" class="btn btn-primary" id="add">添加</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
+
+
+
+
+
+  <!-- 一级列表渲染模板 -->
+  <script type="text/html" id="firTel">
+    {{each rows v i}}
+      <tr>
+        <td>{{i+1+(page-1)*size}}</td>
+        <td>{{v.categoryName}}</td>
+      </tr>
+  
+    {{/each}}
+  </script>
+
+
+
 
 
 
   <script src="./lib/jquery/jquery.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
   <script src="./js/isLogin.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
   <script src="./js/common.js"></script>
+  <script src="./js/firest.js"></script>
 
 </body>
 
