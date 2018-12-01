@@ -34,8 +34,8 @@
             <i class="glyphicon glyphicon-list"></i><span>分类管理</span>
           </a>
           <div class="child">
-            <a href="firest.html" class="">鞋子</a>
-            <a href="sencode.html">衣服</a>
+            <a href="firest.html" class="">一级分类</a>
+            <a href="sencode.html">二级分类</a>
           </div>
         </li>
         <li>
@@ -75,6 +75,9 @@
             <!-- 玩个坑 -->
           </tbody>
         </table>
+        <div class="pull-right">
+          <ul id="pagintor"></ul>
+        </div>
       </div>
     </div>
   </div>
@@ -136,7 +139,7 @@
         <td>{{v.username}}</td>
         <td>{{v.mobile}}</td>
         <td>{{v.isDelete===1?'正常':'禁用'}}</td>
-        <td>
+        <td data-id="{{v.id}}">
           {{if v.isDelete===1}}
           
           <button class="btn btn-danger">禁用</button>
@@ -157,6 +160,7 @@
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
   <script src="./js/isLogin.js"></script>
   <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
   <script src="./js/common.js"></script>
   <script src="./js/user.js"></script>
