@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+
+    <!-- demo.html?key=常杰&name=叶子树&age=24 -->
+
+
+
+    <script>
+
+      //获取搜索字符串
+      var str = location.search;
+      console.log('转码前：'+str);
+
+      //将字符串转码
+      var str = decodeURI(str);
+      console.log('转码后：'+str);
+
+      //去掉问号
+      str = str.slice(1)
+      console.log('去掉问号后：'+str);
+
+      //用&分割为数组
+      var arr = str.split('&');
+      console.log('用&分割为数组：'+arr);
+      
+
+      var obj = {};
+
+      arr.forEach(function (ele) {
+        var arr2 = ele.split('=');
+        
+        var key = arr2[0];
+        var value = arr2[1];
+        obj[key]=value;
+        
+      })
+
+      console.log(obj);
+      
+      
+      
+      
+    
+    
+    
+    
+    </script>
+
+
+</body>
+
+</html>

@@ -215,7 +215,7 @@ $(function () {
       picArr.unshift(data.result);
 
       //显示添加的图片
-      $('#imgBox').prepend('<img src="'+data.result.picAddr+'" alt="" style="width:100px;height: 100px">');
+      $('.imgBox').prepend('<img src="'+data.result.picAddr+'" alt="" style="width:100px;height: 100px">');
 
       //数量超过三张，删除最后面的图片，同时删除页面上最后一张
       if(picArr.length>3){

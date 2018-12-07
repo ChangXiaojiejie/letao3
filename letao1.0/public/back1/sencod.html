@@ -39,8 +39,8 @@
             <i class="glyphicon glyphicon-list"></i><span>分类管理</span>
           </a>
           <div class="child" style="display:block">
-            <a href="first.html" >二级列表01</a>
-            <a href="sencod.html" class="active">二级列表02</a>
+            <a href="first.html">一级分类</a>
+            <a href="sencod.html" class="active">二级分类</a>
           </div>
         </li>
         <li>
@@ -65,31 +65,37 @@
       <div class="mt_20">
         <ol class="breadcrumb">
           <li><a href="#">管理系统</a></li>
-          <li>用户管理</li>
+          <li class="active">分类管理</li>
+          <li class="active">二级分类</li>
         </ol>
       </div>
       <div class="content">
+        <div>
+          <button class="btn addBtn btn-default pull-left mb_20">添加分类</button>
+        </div>
         <table class="table table-bordered table-hover">
-          <thead>		
+          <thead>
             <tr>
               <th>序号</th>
-              <th>用户名</th>
-              <th>手机号</th>
-              <th>状态</th>
-              <th>操作</th>
+              <th>一级分类名称</th>
+              <th>二级分类名称</th>
+              <th>二级分类LOGO</th>
+
             </tr>
           </thead>
           <tbody>
-            <tr>			
+            <tr>
               <td>1</td>
               <td>itcast</td>
               <td>15757771111</td>
-              <td>正常</td>
-              <td><button class="btn btn-danger">禁用</button>
-              </td>
+              <td><img src="./images/06.jpg" alt="" height="50px"></td>
+
             </tr>
           </tbody>
         </table>
+        <div class="page text-right">
+          <ul id="paginator"></ul>
+        </div>
       </div>
 
     </div>
@@ -98,10 +104,10 @@
   <div class="mask">
     <!-- Modal -->
     <div class="modal fade" id="logout" tabindex="-1">
-      <div class="modal-dialog modal-sm" > 
+      <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" ><span>&times;</span></button>
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
           </div>
           <div class="modal-body">
@@ -109,23 +115,106 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-primary "id="logout">退出</button>
+            <button type="button" class="btn btn-primary " id="logoutBtn">退出</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <div class="assort">
+    <!-- Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <form id="form">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="form-group">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span id="dropdownText">请选择一级分类</span>
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <!-- 刨个坑 -->
+                    <li>我是一个li</li>
+                  </ul>
+                </div>
+
+                <input type="hidden" name="categoryId">
+                <!-- 火热的品牌 -->
+                <input type="hidden" name="hot" value="1">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="请输入二级分类" name="brandName">
+              </div>
+              <div class="form-group">
+                <label class="btn btn-default" for="fileupload">上传图片</label>
+                <!-- 注意:
+                        1. 指定name用于让后台获取图片, 所以不能乱写
+                        2. 指定data-url, 指定接口地址
+                -->
+                <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none;">
+              </div>
+              <div class="form-group" id="imgBox">
+                <img src="images/none.jpg" width="100">
+                <!-- 图片地址 -->
+                <input type="hidden" name="brandLogo">
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="submit" class="btn btn-primary " id="add">添加</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/html" id="tml">
+
+    {{each rows v i}}
+      <tr>			
+        <td>{{i+1+(page-1)*size}}</td>
+        <td>{{v.brandName}}</td>
+        <td>{{v.categoryName}}</td>
+        <td><img src="{{v.brandLogo}}" alt="" height="50px"></td>
+      </tr>
+    {{/each}}
+  
+  </script>
+
+
+  <script type="text/html" id="firest_tml">
+    {{each rows v i }}
+
+    <li ><a data-id="{{v.id}}" href="#">{{v.categoryName}}</a></li>
+
+    {{/each}}
+  
+  
+  </script>
+
 
   <script src="./lib/jquery/jquery.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
   <script src="./js/isLogin.js"></script>
   <script src="./js/common.js"></script>
- 
-
-
+  <script src="./js/sencode.js"></script>
 
 
 </body>

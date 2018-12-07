@@ -9,6 +9,12 @@
 .mt_20{
   margin-top:20px; 
 }
+.table.table-bordered th,
+.table.table-bordered td{
+  text-align: center;
+  vertical-align: middle;
+}
+
 
 .panle_title{
   line-height: 40px;
@@ -67,6 +73,7 @@ a:active{
 /*设置侧边栏的用户*/
 .lt_aside .user{
   padding-top: 30px;
+  display: block;
 }
 
 .lt_aside .user img{

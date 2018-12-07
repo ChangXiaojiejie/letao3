@@ -40,9 +40,9 @@
          //显示模态框
          $('#logout').modal('show')
          // (2) 点击退出模态框的退出按钮, 完成退出功能
-         $('#logout').click(function () {
+         $('#logoutBtn').click(function () {
 
-           // console.log('退出了');
+          //  console.log('退出了');
            // 发送ajax请求, 让后台销毁当前用户的登录状态
 
            $.ajax({
