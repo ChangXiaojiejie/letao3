@@ -1,5 +1,20 @@
 $(function () {
+//  var url = getSearStr(url)[1];
 
+if(location.search){
+  //获取字符串
+  var str = location.search;
+  console.log(str);
+  //去掉问号
+  str = str.substr(1);
+  console.log(str);
+  //找到第一个等号位置
+  var index = str.indexOf('=');
+  //截取第一个等号后面的内容
+  var str = str.substr(index+1);
+  console.log(str);
+
+}
   $('.logBtn').click(function () {
     var check = true;
     mui("#form input").each(function () {
@@ -24,7 +39,12 @@ $(function () {
 
           // console.log(info);
           if(info.success){
-            history.back();
+            if(str){
+              location.href = str;
+            }
+            else{
+              history.back();
+            }
           }
 
 
@@ -35,20 +55,7 @@ $(function () {
 
 
     }
-
-
-
   });
-
-
-
-
-
-
-
-
-
-
 
 
 });

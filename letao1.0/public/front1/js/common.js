@@ -27,3 +27,23 @@
   
 })();
 
+  //获取搜索关键字
+  function getSearStr() {
+
+    //获取地址栏中的地址
+    var str = location.search;
+
+    //转码
+    str = decodeURI(str);
+
+    //去掉问号
+    str = str.slice(1);
+
+    //转为数组
+    var arr = str.split('=');
+
+    console.log(arr);
+
+    return arr;
+  }
+

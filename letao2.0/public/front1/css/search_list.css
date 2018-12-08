@@ -13,3 +13,8 @@
   display: block;
   float: left;
 }
+
+.lt_sort a.current{
+  color: orange;
+}
+
