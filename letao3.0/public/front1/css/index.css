@@ -1,0 +1,19 @@
+
+.lt_banner{
+  width: 100%;
+  height: 234px;
+}
+
+.lt_nav{
+
+}
+
+.lt_nav ul{
+  overflow: hidden;
+}
+
+.lt_nav ul li{
+  float: left;
+  width: 33.33%;
+ 
+}

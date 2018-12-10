@@ -1,0 +1,27 @@
+
+.lt_sear_nav{
+  height: 30px;
+  background-color: #eee;
+  padding: 0 10px;
+}
+
+.lt_sear_nav li{
+  width: 25%;
+  height: 30px;
+  float: left;
+}
+.lt_sear_nav li a{
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 30px;
+  color: #666;
+  font-size: 12px;
+}
+.lt_sear_nav li a i{
+  margin-left: 5px;
+}
+
+
+
+
